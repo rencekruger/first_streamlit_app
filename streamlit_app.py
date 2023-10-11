@@ -1,16 +1,20 @@
 
 import streamlit,unicodedata
+from browser import document
+from browser import html
 streamlit.title('My Parents New Healthy Diner')
 
-all_emoji = "🐞🐍👍🎉🤩😂🐶🍿😎✨💬😘"
-columns = ["#", "Emoji", "Name"]
 
-table_head = f"<thead>\n<tr><th>{'</th><th>'.join(columns)}</th></tr>\n</thead>"
+# Navigation
+nav = html.DIV('Python 🐍', Class="nav")
 
-table_body = "\n<tbody>\n"
-for i, emoji in enumerate(all_emoji, start=1):
-    emoji_data = [f"{i}.", emoji, unicodedata.name(emoji).title()]
-    table_body += f"<tr><td>{'</td><td>'.join(emoji_data)}</td></tr>\n"
-table_body += "</tbody>\n"
+# Content
+cnt = html.DIV('You can do really awesome stuff using a nice slack!', Class="content")
 
-print(f"<table>\n{table_head}{table_body}</table>")
+# Footer
+ftr = html.DIV('Made with luv by: Cabral', Class="footer")
+
+# Push 
+document <= [nav, cnt, ftr]
+
+
